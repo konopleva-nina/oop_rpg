@@ -1,8 +1,8 @@
-package AllAvengers;
+package AllHero;
 
 import java.util.ArrayList;
 
-public abstract class Melee extends Avengers{
+public abstract class Melee extends BaseHero{
     protected int attacksAmount, attackRange;
     public Melee(int x, int y, int initiative, int damage, int moveDistance, int attacksAmount, int attackRange) {
         super(x, y, 100, 100, damage, moveDistance, initiative, true);
@@ -11,10 +11,10 @@ public abstract class Melee extends Avengers{
     }
 
     @Override
-    public void step(ArrayList<Avengers> enemy, ArrayList<Avengers> team) {
+    public void step(ArrayList<BaseHero> enemy, ArrayList<BaseHero> team) {
         if (!isAlive) return;
 
-        Avengers tmp = nearest(enemy);
+        BaseHero tmp = nearest(enemy);
 
         if (coordinates.countDistance(tmp.coordinates) <= attackRange) {
             for (int i = 0; i < attacksAmount; i++) {

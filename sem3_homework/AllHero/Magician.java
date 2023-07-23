@@ -1,27 +1,27 @@
-package AllAvengers;
+package AllHero;
 
 import java.util.ArrayList;
 import java.util.Random;
 
 // MAGICIAN
-public class Thor extends Support{
-    public Thor(int x, int y, int initiative, int actionPriority) {
+public class Magician extends Support{
+    public Magician(int x, int y, int initiative, int actionPriority) {
         super(x ,y, initiative + 2, 100, 10, 3, actionPriority);
     }
 
     @Override
     public String getInfo() {
-        return "Mage [" + coordinates.x + ", " + coordinates.y + "] mana: " + mana + "/" + 10 + " HP: " + hp + "/" + max_hp + " " + state;
+        return "Wizard [" + coordinates.x + ", " + coordinates.y + "] mana: " + mana + "/" + 10 + " HP: " + hp + "/" + max_hp + " " + state;
      }
 
     @Override
-    public void step(ArrayList<Avengers> enemy, ArrayList<Avengers> team) {
+    public void step(ArrayList<BaseHero> enemy, ArrayList<BaseHero> team) {
 
         super.step(enemy, team);
-        ArrayList<Avengers> deadTeammates = new ArrayList<>();
-        Avengers tmpAlly = team.get(0);
+        ArrayList<BaseHero> deadTeammates = new ArrayList<>();
+        BaseHero tmpAlly = team.get(0);
         if (!isAlive) return;
-        for (Avengers unit: team) {
+        for (BaseHero unit: team) {
             if (!unit.isAlive) {
                 deadTeammates.add(unit);
             }

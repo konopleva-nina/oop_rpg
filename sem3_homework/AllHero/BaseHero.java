@@ -1,15 +1,15 @@
-package AllAvengers;
+package AllHero;
 
 import javax.lang.model.element.AnnotationValueVisitor;
 import java.util.ArrayList;
 
-public abstract class Avengers implements InGameInterface {
+public abstract class BaseHero implements GameInterface {
     public int damage, hp, max_hp, initiative, moveDistance;;
     public boolean isAlive;
     public String state;
     Coordinates coordinates;
 
-    public Avengers(int x, int y, int hp, int max_hp, int damage, int moveDistance, int initiative, boolean isAlive) {
+    public BaseHero(int x, int y, int hp, int max_hp, int damage, int moveDistance, int initiative, boolean isAlive) {
         this.damage = damage;
         this.hp = hp;
         this.max_hp = max_hp;
@@ -29,16 +29,16 @@ public abstract class Avengers implements InGameInterface {
         return this.getInfo().split(" ")[0];
     }
 
-    public void move(Coordinates targetPosition, ArrayList<Avengers> team) {
+    public void move(Coordinates targetPosition, ArrayList<BaseHero> team) {
         if (!coordinates.containsByPos(coordinates.newPosition(targetPosition, team), team)) {
             for (int i = 0; i < moveDistance; i++) {
                 coordinates = coordinates.newPosition(targetPosition, team);
             }
         }
     }
-    public Avengers nearest(ArrayList<Avengers> units) {
+    public BaseHero nearest(ArrayList<BaseHero> units) {
         double minDistance = Double.MAX_VALUE;
-        Avengers nearestEnemy = units.get(0);
+        BaseHero nearestEnemy = units.get(0);
         for (int i = 0; i < units.size(); i++) {
             if (coordinates.countDistance(units.get(i).coordinates) < minDistance && units.get(i).isAlive) {
                 nearestEnemy = units.get(i);

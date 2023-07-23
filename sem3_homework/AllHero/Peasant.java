@@ -1,11 +1,10 @@
-package AllAvengers;
+package AllHero;
 
 import java.util.ArrayList;
 
-// Peasant
-public class Human extends Support {
+public class Peasant extends Support {
 
-    public Human(int x, int y, int initiative, int actionPriority) {
+    public Peasant(int x, int y, int initiative, int actionPriority) {
         super(x, y, initiative, 0, 0, 1, actionPriority);
     }
 
@@ -15,7 +14,7 @@ public class Human extends Support {
     }
 
     @Override
-    public void step(ArrayList<Avengers> enemy, ArrayList<Avengers> team) {
+    public void step(ArrayList<BaseHero> enemy, ArrayList<BaseHero> team) {
         if (isAlive) {
             if (state == "Busy") {
                 state = "Stand";

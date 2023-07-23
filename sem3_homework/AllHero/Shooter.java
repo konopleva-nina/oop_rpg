@@ -1,8 +1,8 @@
-package AllAvengers;
+package AllHero;
 
 import java.util.ArrayList;
 
-public abstract class Shooter extends Avengers {
+public abstract class Shooter extends BaseHero {
     protected int arrows, attackRange, timeToLoad;
 
     public Shooter(int x, int y, int initiative, int attackRange, int arrows, int timeToLoad) {
@@ -13,12 +13,12 @@ public abstract class Shooter extends Avengers {
     }
 
     @Override
-    public void step(ArrayList<Avengers> enemy, ArrayList<Avengers> team) {
-        Avengers tmp = nearest(enemy);
+    public void step(ArrayList<BaseHero> enemy, ArrayList<BaseHero> team) {
+        BaseHero tmp = nearest(enemy);
 
         if (isAlive) {
-            for (Avengers unit: team) {
-                if (unit instanceof Human && unit.state == "Stand" && arrows < 20 && this instanceof SpiderMan) {
+            for (BaseHero unit: team) {
+                if (unit instanceof Peasant && unit.state == "Stand" && arrows < 20 && this instanceof Archer) {
                     arrows += 1;
                     unit.state = "Busy";
                     return;

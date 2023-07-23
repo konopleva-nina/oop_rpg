@@ -1,4 +1,4 @@
-package AllAvengers;
+package AllHero;
 
 import java.util.ArrayList;
 
@@ -18,7 +18,7 @@ public class Coordinates {
         int dy = coordinates.y - y;
         return Math.sqrt(Math.pow(dx, 2) + Math.pow(dy, 2));
     }
-    public Coordinates newPosition(Coordinates targetPosition, ArrayList<Avengers> team) {
+    public Coordinates newPosition(Coordinates targetPosition, ArrayList<BaseHero> team) {
         Coordinates currentPos = new Coordinates(x, y);
 
         // if X <
@@ -35,8 +35,8 @@ public class Coordinates {
         return currentPos;
     }
 
-    public boolean containsByPos(Coordinates nextPosition, ArrayList<Avengers> team) {
-        for (Avengers avengers: team) {
+    public boolean containsByPos(Coordinates nextPosition, ArrayList<BaseHero> team) {
+        for (BaseHero avengers: team) {
             if (avengers.coordinates == nextPosition) return true;
         }
         return false;

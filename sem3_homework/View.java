@@ -1,6 +1,6 @@
-import AllAvengers.Avengers;
-
 import java.util.Collections;
+
+import AllHero.BaseHero;
 
 public class View {
     private static int step = 1;
@@ -26,7 +26,7 @@ public class View {
     }
     private static String getChar(int x, int y){
         String out = "| ";
-        for (Avengers human: Main.allTeam) {
+        for (BaseHero human: Main.allTeam) {
             if (human.getCoords().get(0) == x && human.getCoords().get(1) == y){
                 if (!human.isAlive) {
                     out = "|" + (AnsiColors.ANSI_RED + human.toString().charAt(0) + AnsiColors.ANSI_RESET);

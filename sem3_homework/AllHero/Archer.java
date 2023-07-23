@@ -1,8 +1,7 @@
-package AllAvengers;
+package AllHero;
 
-// ARCHER
-public class SpiderMan extends Shooter{
-    public SpiderMan(int x, int y, int initiative) {
+public class Archer extends Shooter{
+    public Archer(int x, int y, int initiative) {
         super(x, y, initiative + 3, 5, 20, 0);
     }
 

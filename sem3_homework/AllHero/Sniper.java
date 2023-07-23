@@ -1,11 +1,10 @@
-package AllAvengers;
+package AllHero;
 
 import java.util.ArrayList;
 
-// SNIPER
-public class AntMan extends Shooter {
+public class Sniper extends Shooter {
 
-    public AntMan(int x, int y, int initiative) {
+    public Sniper(int x, int y, int initiative) {
         super(x, y, initiative + 3, 7, 100, 1);
     }
     @Override

@@ -1,6 +1,6 @@
-import AllAvengers.*;
-
 import java.util.*;
+
+import AllHero.*;
 
 /*
 Добавить файл с описанием интерфейса. В котором описать два метода, void step(); и String getInfo();
@@ -41,9 +41,9 @@ import java.util.*;
 5. Если расстояние до врага одна клетка бём его!
  */
 public class Main {
-    public static ArrayList<Avengers> team1 = new ArrayList<>();
-    public static ArrayList<Avengers> team2 = new ArrayList<>();
-    public static ArrayList<Avengers> allTeam = new ArrayList<>();
+    public static ArrayList<BaseHero> team1 = new ArrayList<>();
+    public static ArrayList<BaseHero> team2 = new ArrayList<>();
+    public static ArrayList<BaseHero> allTeam = new ArrayList<>();
 
     public static void main(String[] args) {
 
@@ -91,8 +91,8 @@ public class Main {
             String message = " ";
 
             int init1 = 0, init2 = 0;
-            Avengers tmpTeam1 = team1.get(init1);
-            Avengers tmpTeam2 = team2.get(init2);
+            BaseHero tmpTeam1 = team1.get(init1);
+            BaseHero tmpTeam2 = team2.get(init2);
 
             for (int i = 0; i < teamCount * 2; i++) {
                 if (isTeamDie(team1)) {
@@ -123,37 +123,37 @@ public class Main {
         }
     }
 
-    public static boolean isTeamDie(ArrayList<Avengers> team) {
-        for (Avengers avengers : team) {
+    public static boolean isTeamDie(ArrayList<BaseHero> team) {
+        for (BaseHero avengers : team) {
             if (!avengers.state.equals("Dead")) return false;
         }
         return true;
     }
 
-    private static void addRandomUnit(int num, int i, ArrayList<Avengers> units, int teamPos) {
+    private static void addRandomUnit(int num, int i, ArrayList<BaseHero> units, int teamPos) {
         Random rand = new Random();
         switch (num)
         {
             case 0:
-                units.add(new SpiderMan(teamPos, i + 1, rand.nextInt(21)));
+                units.add(new Archer(teamPos, i + 1, rand.nextInt(21)));
                 break;
             case 1:
-                units.add(new CaptainAmerica(teamPos, i + 1, rand.nextInt(21)));
+                units.add(new Spearman(teamPos, i + 1, rand.nextInt(21)));
                 break;
             case 2:
-                units.add(new Thor(teamPos, i + 1, rand.nextInt(21), 1));
+                units.add(new Magician(teamPos, i + 1, rand.nextInt(21), 1));
                 break;
             case 3:
-                units.add(new Wasp(teamPos, i + 1, rand.nextInt(21), 1));
+                units.add(new Monk(teamPos, i + 1, rand.nextInt(21), 1));
                 break;
             case 4:
-                units.add(new Human(teamPos, i + 1, rand.nextInt(21), 1));
+                units.add(new Peasant(teamPos, i + 1, rand.nextInt(21), 1));
                 break;
             case 5:
-                units.add(new Hulk(teamPos, i + 1, rand.nextInt(21)));
+                units.add(new Robber(teamPos, i + 1, rand.nextInt(21)));
                 break;
             case 6:
-                units.add(new AntMan(teamPos, i + 1, rand.nextInt(21)));
+                units.add(new Sniper(teamPos, i + 1, rand.nextInt(21)));
                 break;
         }
     }
